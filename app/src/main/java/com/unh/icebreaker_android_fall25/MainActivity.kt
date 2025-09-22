@@ -20,10 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             IcebreakerandroidFall25Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "World!", //
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                MainScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
