@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.unh.icebreaker_android_fall25" />
+                  <option name="mobileSdkAppId" value="1:519749852845:android:3c791874d6b67cbeb73024" />
+                  <option name="projectId" value="icebreaker-fall2025-2e522" />
+                  <option name="projectNumber" value="519749852845" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
