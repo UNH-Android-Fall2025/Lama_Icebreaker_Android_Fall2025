@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,7 +28,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    onGetQuestionClicked: () -> Unit,
+    queryDbOnStart: () -> Unit,
+    onGetQuestionClicked: () -> String = {"Placeholder"},
     onSubmitClicked: () -> Unit
 ) {
     var firstName by remember { mutableStateOf("")}
@@ -36,6 +38,10 @@ fun MainScreen(
     var question by remember { mutableStateOf("") }
     var answer by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+
+    LaunchedEffect(Unit){
+        queryDbOnStart()
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,7 +85,7 @@ fun MainScreen(
         )
         Button(
             onClick = {
-                onGetQuestionClicked()
+                question = onGetQuestionClicked()
             },
             modifier = Modifier.padding(top = 20.dp),
             colors = ButtonDefaults.buttonColors(
@@ -136,8 +142,9 @@ fun MainScreen(
 fun MainScreenPreview(){
     MaterialTheme{
         MainScreen(
+            queryDbOnStart = {},
             onSubmitClicked = {},
-            onGetQuestionClicked = {},
+            onGetQuestionClicked = {"New Preview Question!"},
 
         )
     }
