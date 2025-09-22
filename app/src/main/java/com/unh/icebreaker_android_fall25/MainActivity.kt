@@ -30,26 +30,11 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
-private fun getQuestionsFromFirebase(){
-    Log.d("IcebreakerF2025","Get from DB")
-}
+    private fun getQuestionsFromFirebase(){
+        Log.d("IcebreakerF2025","Get from DB")
+    }
 
-private fun setResponseToFirebase(){
-    Log.d("IcebreakerF2025", "Save to DB")
-}
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Goodbye $name!", // Testing Name change
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    IcebreakerandroidFall25Theme {
-        Greeting("Android")
+    private fun setResponseToFirebase(){
+        Log.d("IcebreakerF2025", "Save to DB")
     }
 }

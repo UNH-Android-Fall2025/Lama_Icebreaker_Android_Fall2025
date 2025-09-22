@@ -59,6 +59,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
-    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-firestore")
 
 }
