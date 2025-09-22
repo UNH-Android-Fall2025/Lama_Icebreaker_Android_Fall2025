@@ -51,7 +51,7 @@ fun IcebreakerandroidFall25Theme(
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = LightColorScheme,
         typography = Typography,
         content = content
     )
