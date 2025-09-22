@@ -22,7 +22,7 @@ import com.unh.icebreaker_android_fall25.ui.theme.IcebreakerandroidFall25Theme
 class MainActivity : ComponentActivity() {
     private val db = Firebase.firestore
     private var questionBank: MutableList<Questions>? = arrayListOf()
-    private var currentQuestion by mutableStateOf("")
+    private var className = "android-fall25"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.padding(innerPadding),
                     queryDbOnStart = { getQuestionsFromFirebase() },
                     onGetQuestionClicked = { getQuestion() },
-                    onSubmitClicked = { setResponseToFirebase() }
+                    onSubmitClicked = { first, last, pref, question, answer ->
+                        setResponseToFirebase(first, last, pref, answer, question)
+                    }
                 )
                 }
             }
@@ -66,7 +68,24 @@ class MainActivity : ComponentActivity() {
             }
     }
 
-    private fun setResponseToFirebase(){
+    private fun setResponseToFirebase(
+        firstName: String,
+        lastName: String,
+        prefName: String,
+        answer: String,
+        question: String,
+        onSuccess: () -> Unit = {},
+        onFailure: (Exception) -> Unit = {}
+    ){
         Log.d("IcebreakerF2025", "Save to DB")
+        val student = hashMapOf(
+            "firstname" to firstName,
+            "lastname" to lastName,
+            "prefname" to prefName,
+            "answer" to answer,
+            "class" to className,
+            "question" to question
+        )
+        Log.d("IcebreakerF2025", "$student")
     }
 }
