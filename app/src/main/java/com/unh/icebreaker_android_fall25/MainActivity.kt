@@ -1,6 +1,7 @@
 package com.unh.icebreaker_android_fall25
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,13 +21,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             IcebreakerandroidFall25Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                MainScreen(modifier = Modifier.padding(innerPadding))
+                MainScreen(
+                    modifier = Modifier.padding(innerPadding),
+                    onGetQuestionClicked = { getQuestionsFromFirebase() },
+                    onSubmitClicked = { setResponseToFirebase() }
+                )
                 }
             }
         }
     }
 }
+private fun getQuestionsFromFirebase(){
+    Log.d("IcebreakerF2025","Get from DB")
+}
 
+private fun setResponseToFirebase(){
+    Log.d("IcebreakerF2025", "Save to DB")
+}
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(

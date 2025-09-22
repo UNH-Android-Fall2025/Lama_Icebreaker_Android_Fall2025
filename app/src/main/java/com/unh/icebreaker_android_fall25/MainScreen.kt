@@ -24,7 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MainScreen( modifier: Modifier = Modifier) {
+fun MainScreen(
+    modifier: Modifier = Modifier,
+    onGetQuestionClicked: () -> Unit,
+    onSubmitClicked: () -> Unit
+) {
     var firstName by remember { mutableStateOf("")}
     var lastName by remember { mutableStateOf("") }
     var prefName by remember { mutableStateOf("") }
@@ -73,7 +77,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
         )
         Button(
             onClick = {
-                Log.d("IcebreakerF2025", "Pressed")
+                onGetQuestionClicked()
             },
             modifier = Modifier.padding(top = 20.dp),
             colors = ButtonDefaults.buttonColors(
@@ -88,7 +92,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
                 )
             }
         Text(
-            text = stringResource(R.string.question_button_text),
+            text = question,
             fontSize = 18.sp,
             modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)
         )
@@ -104,7 +108,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
 
         Button(
             onClick = {
-                Log.d("IcebreakerF2025", "Pressed")
+                onSubmitClicked()
             },
             modifier = Modifier.padding(top = 20.dp),
             colors = ButtonDefaults.buttonColors(
@@ -114,7 +118,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
 
         ){
             Text(
-                text = stringResource(R.string.submit_button_Text),
+                text = "Submit",
                 fontSize = 18.sp
             )
         }
@@ -124,6 +128,10 @@ fun MainScreen( modifier: Modifier = Modifier) {
 @Composable
 fun MainScreenPreview(){
     MaterialTheme{
-        MainScreen()
+        MainScreen(
+            onSubmitClicked = {},
+            onGetQuestionClicked = {},
+
+        )
     }
 }
