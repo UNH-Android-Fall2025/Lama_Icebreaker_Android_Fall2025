@@ -86,6 +86,15 @@ class MainActivity : ComponentActivity() {
             "class" to className,
             "question" to question
         )
-        Log.d("IcebreakerF2025", "$student")
+        db.collection("Students")
+            .add(student)
+            .addOnSuccessListener { documentReference ->
+                Log.d("IcebreakerF2025", "Saved with Id: ${documentReference.id}")
+                onSuccess()
+            }
+            .addOnFailureListener { error ->
+                Log.w("IcebreakerF2025", "Error saving", error)
+                onFailure(error)
+            }
     }
 }
