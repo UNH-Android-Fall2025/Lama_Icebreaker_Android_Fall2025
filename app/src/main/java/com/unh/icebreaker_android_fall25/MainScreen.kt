@@ -28,7 +28,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
     var firstName by remember { mutableStateOf("")}
     var lastName by remember { mutableStateOf("") }
     var prefName by remember { mutableStateOf("") }
-    var question by remember { mutableStateOf("Test") }
+    var question by remember { mutableStateOf("") }
     var answer by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
@@ -88,7 +88,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
                 )
             }
         Text(
-            text = question,
+            text = stringResource(R.string.question_button_text),
             fontSize = 18.sp,
             modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)
         )
@@ -114,7 +114,7 @@ fun MainScreen( modifier: Modifier = Modifier) {
 
         ){
             Text(
-                text = "Submit",
+                text = stringResource(R.string.submit_button_Text),
                 fontSize = 18.sp
             )
         }
